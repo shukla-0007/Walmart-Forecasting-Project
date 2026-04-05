@@ -1,24 +1,17 @@
-This README is designed to mirror your handwritten notes and the technical steps we’ve built. It is structured to be "portfolio-ready," making it perfect for GitHub or a job application.
-
 Advanced Statistical Modeling for Walmart Sales Forecasting
-Project Overview
 
+Project Overview:- 
 This project focuses on building a robust retail sales forecasting system using historical Walmart data. By moving from a traditional baseline regression model to a Random Forest approach and implementing a SARIMAX time-series model, the project achieved a 15% improvement in prediction accuracy (MAPE). The final results are visualized in an interactive Tableau dashboard to enable data-driven inventory management decisions.
 
-Tech Stack
 
+Tech Stack:- 
 Language: Python 3.x
-
 Libraries: Pandas, NumPy, Scikit-Learn, Statsmodels (SARIMAX)
-
 Data Format: Parquet (for optimized storage and performance)
-
 Visualization: Tableau Desktop
-
 Environment: VS Code
 
-Key Features & Logic
-
+Key Features & Logic:- 
 Following specific data science workflows, the project follows these exact steps:
 
 1. Data Engineering & Cleaning
@@ -104,4 +97,4 @@ Results Summary
 Model	MAPE (Error)
 Linear Regression (Baseline)	20.0%
 Random Forest (Final)	15.0%
-Accuracy improved by 25% relative to the baseline.	
+Accuracy improved by 25% relative to the baseline.	 
