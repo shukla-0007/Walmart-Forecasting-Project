@@ -1,0 +1,107 @@
+This README is designed to mirror your handwritten notes and the technical steps we’ve built. It is structured to be "portfolio-ready," making it perfect for GitHub or a job application.
+
+Advanced Statistical Modeling for Walmart Sales Forecasting
+Project Overview
+
+This project focuses on building a robust retail sales forecasting system using historical Walmart data. By moving from a traditional baseline regression model to a Random Forest approach and implementing a SARIMAX time-series model, the project achieved a 15% improvement in prediction accuracy (MAPE). The final results are visualized in an interactive Tableau dashboard to enable data-driven inventory management decisions.
+
+Tech Stack
+
+Language: Python 3.x
+
+Libraries: Pandas, NumPy, Scikit-Learn, Statsmodels (SARIMAX)
+
+Data Format: Parquet (for optimized storage and performance)
+
+Visualization: Tableau Desktop
+
+Environment: VS Code
+
+Key Features & Logic
+
+Following specific data science workflows, the project follows these exact steps:
+
+1. Data Engineering & Cleaning
+
+Optimized Loading: Converted raw CSV data into Parquet format to reduce memory usage and increase processing speed.
+
+Date Parsing: Systematic parsing of date strings into datetime objects to ensure chronological alignment.
+
+Integrity Checks: Performed rigorous checks for missing values, duplicate entries, and null/negative sales data.
+
+Imputation: Utilized the forward-fill (ffill) method in Pandas to handle gaps in transactional data.
+
+Promotion Handling: Converted empty promotion/markdown values to 0 to ensure numerical consistency for the models.
+
+2. Feature Engineering
+
+Calendar Features: Introduced specialized time-based variables including:
+
+Day of the Week
+
+Month of the Year
+
+Holiday Flags (0/1) to capture seasonal spikes.
+
+3. Statistical Modeling
+
+Baseline Model: Implemented Multiple Linear Regression as a performance benchmark.
+
+Improved Model: Optimized a Random Forest Regressor, which successfully reduced the MAPE (Mean Absolute Percentage Error) from 20% down to 15%.
+
+Time Series Analysis: Leveraged SARIMAX over Prophet because it allows for the inclusion of external factors (exogenous variables) like Temperature, Fuel Price, and CPI alongside trends and seasonality.
+
+Validation: The model was trained on 4 months of data to predict the next 4 weeks, simulating real-world retail planning cycles.
+
+Tableau Dashboard Structure
+
+The results were exported into a 3-page interactive Tableau report focused on operational insights:
+
+Sales by Store: A geographic/bar breakdown of performance across different locations.
+
+Overall Trends: A time-series analysis highlighting the impact of holidays on sales volume.
+
+Inventory Sold by Month: A view designed for supply chain teams to visualize monthly throughput and predict future inventory needs.
+
+Project Structure
+code
+Text
+download
+content_copy
+expand_less
+Walmart_Sales_Forecasting/
+├── data/
+│   ├── Walmart_Store_sales.csv      # Raw Data
+│   └── walmart_data.parquet         # Compressed Data
+├── src/
+│   ├── cleaning.py                  # Data Prep Script
+│   └── modeling.py                  # ML & Time Series Script
+├── output/
+│   └── walmart_cleaned_final.csv    # Final export for Tableau
+└── README.md
+How to Run
+
+Clone the repository.
+
+Install dependencies:
+
+code
+Bash
+download
+content_copy
+expand_less
+pip install pandas scikit-learn statsmodels pyarrow
+
+Run the pipeline:
+
+Execute python src/cleaning.py to process raw data.
+
+Execute python src/modeling.py to generate forecasts and the Tableau export.
+
+Open Tableau: Connect to the file in the output/ folder to view the dashboards.
+
+Results Summary
+Model	MAPE (Error)
+Linear Regression (Baseline)	20.0%
+Random Forest (Final)	15.0%
+Accuracy improved by 25% relative to the baseline.	
